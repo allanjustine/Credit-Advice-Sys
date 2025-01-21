@@ -85,11 +85,11 @@ export default function PrintComponent({
         </div>
         <div className="grid grid-cols-4 border-b border-black">
           <div className="border-r border-black p-1">
-            <span className="font-bold">NET SELLING PRICE:</span>{" "}
+            <span className="font-bold">NET SELLING PRICE:</span><br />
             <span>{FormattedNumber(data.netSellingPrice)}</span>
           </div>
           <div className="border-r border-black p-1">
-            <span className="font-bold">DOWN PAYMENT:</span>{" "}
+            <span className="font-bold">DOWN PAYMENT:</span> <br />
             <span>
               {FormattedNumber(data.downPayment)}{" "}
               <span className="ml-5">{`${(
@@ -99,7 +99,7 @@ export default function PrintComponent({
             </span>
           </div>
           <div className="border-r border-black p-1">
-            <span className="font-bold">AMOUNT FINANCED:</span>{" "}
+            <span className="font-bold">AMOUNT FINANCED:</span><br />
             <span>
               {FormattedNumber(data.amountFinanced)}{" "}
               <span className="ml-5">
@@ -112,7 +112,7 @@ export default function PrintComponent({
             </span>
           </div>
           <div className="p-1">
-            <span className="font-bold">TERM (months) / DI:</span>{" "}
+            <span className="font-bold">TERM (months) / DI:</span><br />
             <span>{data.termMonthsDi}</span>
           </div>
         </div>
@@ -146,10 +146,6 @@ export default function PrintComponent({
           second={data.second}
           third={data.third}
         />
-      </div>
-      <div className="flex justify-between">
-        <p className="text-[10px]">Printed Date: {FormattedDate()}</p>
-        <p className="text-[10px] mr-2">CA HISTORY 1_1_0</p>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ const CanPrint = (WrappedComponent: any) => {
       setIsPrintingData(isReadyToPrint ? JSON.parse(isReadyToPrint) : []);
       setIsPrintToken(printTokenLocal ? printTokenLocal : "");
       setIsValidToken(isValidToken);
-      if (isAuthenticated) {
+      if (isAuthenticated && printingData.length !== 0 && isValidToken) {
         setTimeout(() => {
           window.print();
         }, 1000);
@@ -40,7 +40,7 @@ const CanPrint = (WrappedComponent: any) => {
 
     if (loading) return <GLobalLoader />;
 
-    if (!isAuthenticated || (!printingData && !isValidToken)) {
+    if (!isAuthenticated || printingData.length === 0 || !isValidToken) {
       if (isLogout) {
         return <GLobalLoader />;
       }
