@@ -1,3 +1,3 @@
-export type WrappedComponentProps = {
+export interface WrappedComponentProps {
   [key: string]: any;
-};
+}
