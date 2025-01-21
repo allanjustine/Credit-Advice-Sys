@@ -1,15 +1,12 @@
 import { useRouter } from "next/navigation";
-import { ComponentType, useEffect } from "react";
+import { useEffect } from "react";
 import { useAuth } from "../context/useAuth";
 import GLobalLoader from "../components/ui/loaders/Global";
 import Unauthorized from "../utils/Unauthorized";
-import { WrappedComponentProps } from "../types/WrappedComponentPropsType";
 import { ContextType } from "../types/ContextType";
 
-const WithAuth = <P extends WrappedComponentProps>(
-  WrappedComponent: ComponentType<P>
-) => {
-  return (props: P) => {
+const WithAuth = (WrappedComponent: any) => {
+  return (props: any) => {
     const { isAuthenticated, loading, isLogout }: ContextType = useAuth()!;
     const router = useRouter();
 

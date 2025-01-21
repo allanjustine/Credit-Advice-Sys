@@ -1,5 +1,4 @@
-import { ComponentType, useEffect, useState } from "react";
-import { WrappedComponentProps } from "../types/WrappedComponentPropsType";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Credentials } from "./Credentials";
 import GLobalLoader from "../components/ui/loaders/Global";
@@ -7,10 +6,8 @@ import { ContextType } from "../types/ContextType";
 import { useAuth } from "../context/useAuth";
 import Unauthorized from "../utils/Unauthorized";
 
-const CanPrint = <P extends WrappedComponentProps>(
-  WrappedComponent: ComponentType<P>
-) => {
-  return (props: P) => {
+const CanPrint = (WrappedComponent: any) => {
+  return (props: any) => {
     const router = useRouter();
     const { token } = Credentials;
     const { isAuthenticated, loading, isLogout }: ContextType = useAuth()!;
