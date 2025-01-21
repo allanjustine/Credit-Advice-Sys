@@ -253,8 +253,11 @@ export default function CreditAdviceComponent() {
                   <option value="" disabled>
                     Select Dealer
                   </option>
-                  <option value="SUZUKI AUTO BOHOL (DES STRONG MOTORS INC.)">
-                    SUZUKI AUTO BOHOL (DES STRONG MOTORS INC.)
+                  <option value="SUZUKI AUTO BOHOL (DES STRONG MOTORS, INC.)">
+                    SUZUKI AUTO BOHOL (DES STRONG MOTORS, INC.)
+                  </option>
+                  <option value="KIA AUTO BOHOL (STRONG MOTO CENTRUM, INC.)">
+                    KIA AUTO BOHOL (STRONG MOTO CENTRUM, INC.)
                   </option>
                 </Select>
                 <small className="text-red-500">{error.dealer}</small>
