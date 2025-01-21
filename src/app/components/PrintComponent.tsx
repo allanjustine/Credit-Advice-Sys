@@ -86,15 +86,26 @@ export default function PrintComponent({
         <div className="grid grid-cols-4 border-b border-black">
           <div className="border-r border-black p-1">
             <span className="font-bold">NET SELLING PRICE:</span>{" "}
-            <span>{data.netSellingPrice}</span>
+            <span>{FormattedNumber(data.netSellingPrice)}</span>
           </div>
           <div className="border-r border-black p-1">
             <span className="font-bold">DOWN PAYMENT:</span>{" "}
-            <span>{data.downPayment}</span>
+            <span>
+              {FormattedNumber(data.downPayment)}{" "}
+              <span className="ml-5">{`${
+                (data.downPayment / data.netSellingPrice) * 100
+              }%`}</span>
+            </span>
           </div>
           <div className="border-r border-black p-1">
             <span className="font-bold">AMOUNT FINANCED:</span>{" "}
-            <span>{data.amountFinanced}</span>
+            <span>
+              {FormattedNumber(data.amountFinanced)}{" "}
+              <span className="ml-5">
+                {" "}
+                {`${(data.amountFinanced / data.netSellingPrice) * 100}%`}
+              </span>
+            </span>
           </div>
           <div className="p-1">
             <span className="font-bold">TERM (months) / DI:</span>{" "}
@@ -108,7 +119,7 @@ export default function PrintComponent({
           </div>
           <div className="border-r border-black p-1">
             <span className="font-bold">MONTHLY PAYMENT:</span>{" "}
-            <span>{data.monthlyPayment}</span>
+            <span>{FormattedNumber(data.monthlyPayment)}</span>
           </div>
           <div className="p-1">
             <span className="font-bold">PRODUCT:</span>{" "}
