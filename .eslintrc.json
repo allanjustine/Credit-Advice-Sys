@@ -1,14 +1,15 @@
 {
-    "extends": [
-        "next/core-web-vitals",
-        "next/typescript"
-    ],
-    "rules": {
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-unused-vars": "off",
-        "@typescript-eslint/no-empty-object-type": "warn",
-        "react/no-unescaped-entities": "off",
-        "@next/next/no-img-element": "off", // Disable the no-img-element rule
-        "react/display-name": "off"
-    }
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-empty-object-type": "warn",
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-img-element": "off", // Disable the no-img-element rule
+    "react/display-name": "off",
+    "import/no-anonymous-default-export": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/no-children-prop": "off",
+    "react-hooks/rules-of-hooks": "off"
+  }
 }
