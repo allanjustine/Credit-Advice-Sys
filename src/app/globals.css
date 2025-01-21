@@ -15,7 +15,41 @@
 }
 
 body {
+  color: #000;
+  background-color: #fff;
+}
+
+.dark body {
+  background-color: #000;
+  color: #fff;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+}
+
+body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #000 #0000;
+  animation: l1 1s infinite;
+}
+@media (prefers-color-scheme: dark) {
+  .loader {
+    border-color: #fff #0000;
+  }
+}
+
+@keyframes l1 {
+  to {
+    transform: rotate(0.5turn);
+  }
 }
