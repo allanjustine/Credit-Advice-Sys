@@ -88,8 +88,6 @@ export default function CreditAdviceComponent() {
     }
   };
 
-  console.log(isLoading);
-
   return (
     <Card customClass="isolate px-6 py-10 sm:py-22 lg:px-8 w-full rounded-md shadow-md shadow-gray-500 dark:shadow-gray-600">
       <CardHeader customClass="text-balance font-semibold tracking-tight text-gray-900 dark:text-white">
