@@ -36,7 +36,8 @@ export default function CreditAdviceComponent() {
           title === "netSellingPrice" ||
           title === "downPayment" ||
           title === "amountFinanced" ||
-          title === "termMonthsDi" ||
+          title === "termMonths" ||
+          title === "di" ||
           title === "monthlyPayment"
             ? parseFloat(target.value)
             : target.value.toUpperCase();
@@ -236,22 +237,29 @@ export default function CreditAdviceComponent() {
                 />
                 <small className="text-red-500">{error.address}</small>
               </div>
-              {/* <Select
-                icon="handshake"
-                onChange={handleInputChange("dealer")}
-                value={formInput.dealer}
-              >
-                <option value="" hidden>
-                  Select Dealer
-                </option>
-                <option value="" disabled>
-                  Select Dealer
-                </option>
-                <option value="SUZUKI AUTO BOHOL (DES STRONG MOTORS INC.)">
-                  SUZUKI AUTO BOHOL (DES STRONG MOTORS INC.)
-                </option>
-              </Select> */}
               <div>
+                <small className="text-gray-500 dark:text-gray-300">
+                  <label htmlFor="dealer">Dealer</label>
+                </small>
+                <Select
+                  icon="handshake"
+                  onChange={handleInputChange("dealer")}
+                  value={formInput.dealer}
+                  error={error.dealer}
+                >
+                  <option value="" hidden>
+                    Select Dealer
+                  </option>
+                  <option value="" disabled>
+                    Select Dealer
+                  </option>
+                  <option value="SUZUKI AUTO BOHOL (DES STRONG MOTORS INC.)">
+                    SUZUKI AUTO BOHOL (DES STRONG MOTORS INC.)
+                  </option>
+                </Select>
+                <small className="text-red-500">{error.dealer}</small>
+              </div>
+              {/* <div>
                 <small className="text-gray-500 dark:text-gray-300">
                   <label htmlFor="dealer">Dealer</label>
                 </small>
@@ -264,7 +272,7 @@ export default function CreditAdviceComponent() {
                   error={error.dealer}
                 />
                 <small className="text-red-500">{error.dealer}</small>
-              </div>
+              </div> */}
               <div>
                 <small className="text-gray-500 dark:text-gray-300">
                   <label htmlFor="unit">Unit</label>
@@ -349,18 +357,34 @@ export default function CreditAdviceComponent() {
               </div>
               <div>
                 <small className="text-gray-500 dark:text-gray-300">
-                  <label htmlFor="termMothsDi">Term (months) / DI</label>
+                  <label htmlFor="termMothsDi">Term (months)</label>
                 </small>
                 <Input
                   type="number"
                   icon="calendar-clock"
-                  placeholder="Term (months) / DI"
-                  onChange={handleInputChange("termMonthsDi")}
-                  value={formInput.termMonthsDi}
-                  error={error.termMonthsDi}
+                  placeholder="Term (months)"
+                  onChange={handleInputChange("termMonths")}
+                  value={formInput.termMonths}
+                  error={error.termMonths}
                 />
                 <small className="text-red-500">
-                  {error.termMonthsDi === 0 ? "" : error.termMonthsDi}
+                  {error.termMonths === 0 ? "" : error.termMonths}
+                </small>
+              </div>
+              <div>
+                <small className="text-gray-500 dark:text-gray-300">
+                  <label htmlFor="di">DI</label>
+                </small>
+                <Input
+                  type="number"
+                  icon="arrow-up-wide-short"
+                  placeholder="DI"
+                  onChange={handleInputChange("di")}
+                  value={formInput.di}
+                  error={error.di}
+                />
+                <small className="text-red-500">
+                  {error.di === 0 ? "" : error.di}
                 </small>
               </div>
               <div>

@@ -83,9 +83,10 @@ export default function PrintComponent({
             <span>{data.yearModel}</span>
           </div>
         </div>
-        <div className="grid grid-cols-4 border-b border-black">
+        <div className="grid grid-cols-5 border-b border-black">
           <div className="border-r border-black p-1">
-            <span className="font-bold">NET SELLING PRICE:</span><br />
+            <span className="font-bold">NET SELLING PRICE:</span>
+            <br />
             <span>{FormattedNumber(data.netSellingPrice)}</span>
           </div>
           <div className="border-r border-black p-1">
@@ -99,7 +100,8 @@ export default function PrintComponent({
             </span>
           </div>
           <div className="border-r border-black p-1">
-            <span className="font-bold">AMOUNT FINANCED:</span><br />
+            <span className="font-bold">AMOUNT FINANCED:</span>
+            <br />
             <span>
               {FormattedNumber(data.amountFinanced)}{" "}
               <span className="ml-5">
@@ -111,9 +113,15 @@ export default function PrintComponent({
               </span>
             </span>
           </div>
+          <div className="border-r border-black p-1">
+            <span className="font-bold">TERM (months):</span>
+            <br />
+            <span>{data.termMonths}</span>
+          </div>
           <div className="p-1">
-            <span className="font-bold">TERM (months) / DI:</span><br />
-            <span>{data.termMonthsDi}</span>
+            <span className="font-bold">DI:</span>
+            <br />
+            <span>{FormattedNumber(data.di)}</span>
           </div>
         </div>
         <div className="grid grid-cols-3 border-b border-black">
