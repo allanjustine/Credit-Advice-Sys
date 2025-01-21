@@ -38,7 +38,7 @@ export default function CreditAdviceComponent() {
           title === "termMonthsDi" ||
           title === "monthlyPayment"
             ? parseFloat(target.value)
-            : target.value.trim().toUpperCase();
+            : target.value.toUpperCase();
 
         setFormInput((formInput: CreditAdviceFormType) => ({
           ...formInput,
