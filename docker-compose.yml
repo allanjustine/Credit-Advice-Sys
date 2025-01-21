@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  credit-advice:
+    build: .
+    container_name: credit-advice
+    restart: unless-stopped
+    networks:
+      - credit
+    depends_on:
+      - nginx-credit-advice
+
+  nginx-credit-advice:
+    image: nginx:alpine
+    container_name: nginx-credit-advice
+    restart: unless-stopped
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./public:/usr/share/nginx/html
+    ports:
+      - "6001:6001"
+    networks:
+      - credit
+
+networks:
+  credit:
+    driver: bridge
