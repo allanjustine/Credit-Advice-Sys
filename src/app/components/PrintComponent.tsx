@@ -92,9 +92,10 @@ export default function PrintComponent({
             <span className="font-bold">DOWN PAYMENT:</span>{" "}
             <span>
               {FormattedNumber(data.downPayment)}{" "}
-              <span className="ml-5">{`${
-                (data.downPayment / data.netSellingPrice) * 100
-              }%`}</span>
+              <span className="ml-5">{`${(
+                (data.downPayment / data.netSellingPrice) *
+                100
+              ).toFixed(2)}%`}</span>
             </span>
           </div>
           <div className="border-r border-black p-1">
@@ -103,7 +104,10 @@ export default function PrintComponent({
               {FormattedNumber(data.amountFinanced)}{" "}
               <span className="ml-5">
                 {" "}
-                {`${(data.amountFinanced / data.netSellingPrice) * 100}%`}
+                {`${(
+                  (data.amountFinanced / data.netSellingPrice) *
+                  100
+                ).toFixed(2)}%`}
               </span>
             </span>
           </div>

@@ -13,6 +13,7 @@ import { CreditAdviceFormType } from "../types/CreditAdviceFormType";
 import { CreditAdviceInput } from "../utils/constants";
 import { CreditAdviceSchema } from "../lib/CreditAdviceSchema";
 import { Credentials } from "../lib/Credentials";
+import Teaxtarea from "./ui/textarea/Textarea";
 
 export default function CreditAdviceComponent() {
   const [formInput, setFormInput] =
@@ -456,7 +457,7 @@ export default function CreditAdviceComponent() {
                 <small className="text-gray-500 dark:text-gray-300">
                   <label htmlFor="first">{"1. )"}</label>
                 </small>
-                <Input
+                <Teaxtarea
                   type="text"
                   icon="1"
                   placeholder="1. )"
@@ -471,7 +472,7 @@ export default function CreditAdviceComponent() {
                 <small className="text-gray-500 dark:text-gray-300">
                   <label htmlFor="second">{"2. )"}</label>
                 </small>
-                <Input
+                <Teaxtarea
                   type="text"
                   icon="2"
                   placeholder="2. )"
@@ -486,7 +487,7 @@ export default function CreditAdviceComponent() {
                 <small className="text-gray-500 dark:text-gray-300">
                   <label htmlFor="third">{"3. )"}</label>
                 </small>
-                <Input
+                <Teaxtarea
                   type="text"
                   icon="3"
                   placeholder="3. )"
