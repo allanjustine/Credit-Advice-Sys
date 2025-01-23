@@ -1,7 +1,7 @@
 "use client";
 
 import CreditAdviceComponent from "@/app/components/CreditAdviceComponent";
-import WithAuth from "@/app/lib/WithAuth";
+import WithAuth from "@/app/lib/hoc/WithAuth";
 
 const CreditAdvice = () => {
   return (

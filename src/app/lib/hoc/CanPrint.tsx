@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Credentials } from "./Credentials";
-import GLobalLoader from "../components/ui/loaders/Global";
-import { ContextType } from "../types/ContextType";
-import { useAuth } from "../context/useAuth";
-import Unauthorized from "../utils/Unauthorized";
+import { Credentials } from "../Credentials";
+import GLobalLoader from "../../components/ui/loaders/Global";
+import { ContextType } from "../../types/ContextType";
+import { useAuth } from "../../context/useAuth";
+import Unauthorized from "../../utils/Unauthorized";
 
 const CanPrint = (WrappedComponent: any) => {
   return (props: any) => {

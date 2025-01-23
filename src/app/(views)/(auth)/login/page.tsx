@@ -1,7 +1,7 @@
 "use client";
 
 import LoginComponent from "@/app/components/LoginComponent";
-import WithoutAuth from "@/app/lib/WithoutAuth";
+import WithoutAuth from "@/app/lib/hoc/WithoutAuth";
 
 const Login = () => {
   return (

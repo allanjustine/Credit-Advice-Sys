@@ -77,11 +77,10 @@ export default function CreditAdviceComponent() {
         });
         setError(formErrors);
       } else {
-        setError(CreditAdviceInput);
         localStorage.setItem("printing", JSON.stringify(formInput));
         localStorage.setItem("printToken", token);
         window.open("/print", "_blank");
-        setFormInput(CreditAdviceInput);
+        handleResetInput();
       }
     } catch (error) {
       console.error(error);

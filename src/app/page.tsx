@@ -1,6 +1,6 @@
 "use client";
 
-import PublicAuth from "./lib/PublicAuth";
+import PublicAuth from "./lib/hoc/PublicAuth";
 import HomeComponent from "./components/HomeComponent";
 
 const Home = () => {
