@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useAuth } from "../../context/useAuth";
 import GLobalLoader from "../../components/ui/loaders/Global";
-import Unauthorized from "../../utils/Unauthorized";
+import Unauthorized from "../../components/Unauthorized";
 import { ContextType } from "../../types/ContextType";
 
 const WithAuth = (WrappedComponent: any) => {

@@ -4,7 +4,7 @@ import { Credentials } from "../Credentials";
 import GLobalLoader from "../../components/ui/loaders/Global";
 import { ContextType } from "../../types/ContextType";
 import { useAuth } from "../../context/useAuth";
-import Unauthorized from "../../utils/Unauthorized";
+import Unauthorized from "../../components/Unauthorized";
 
 const CanPrint = (WrappedComponent: any) => {
   return (props: any) => {
