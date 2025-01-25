@@ -1,5 +1,3 @@
-"use client";
-
 import { ChangeEvent, useState } from "react";
 import OptionYearFormat from "../utils/OptionYearFormat";
 import Button from "./ui/buttons/Button";
@@ -53,41 +51,39 @@ export default function CreditAdviceComponent() {
 
   const handleResetInput = (): void => {
     setIsResetLoading(true);
-    try {
+
+    setTimeout(() => {
       setFormInput(CreditAdviceInput);
       setError(CreditAdviceInput);
-    } catch (error) {
-      console.error(error);
-    } finally {
       setIsResetLoading(false);
-    }
+    }, 2000);
   };
 
   const handlePrint = (): void => {
-    setIsLoading(true);
-    try {
-      const result = CreditAdviceSchema.safeParse(formInput);
+    const result = CreditAdviceSchema.safeParse(formInput);
 
-      if (!result.success) {
-        const formErrors: Partial<CreditAdviceFormType | any> = {};
-        result.error.errors.map((error) => {
-          const errorPath = error.path;
-          formErrors[errorPath[0] as keyof CreditAdviceFormType] =
-            error.message;
-        });
-        setError(formErrors);
-      } else {
+    if (!result.success) {
+      const formErrors: Partial<CreditAdviceFormType | any> = {};
+      result.error.errors.map((error) => {
+        const errorPath = error.path;
+        formErrors[errorPath[0] as keyof CreditAdviceFormType] = error.message;
+      });
+      setError(formErrors);
+    } else {
+      setIsLoading(true);
+
+      setTimeout(() => {
         localStorage.setItem("printing", JSON.stringify(formInput));
         localStorage.setItem("printToken", token);
         window.open("/print", "_blank");
-        handleResetInput();
-      }
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(false);
+        setIsLoading(false);
+      }, 2000);
     }
   };
+
+  const isInputted = Object.values(formInput).some(
+    (value) => value !== 0 && value !== ""
+  );
 
   return (
     <Card customClass="isolate px-6 py-10 sm:py-22 lg:px-8 w-full rounded-md shadow-md shadow-gray-500 dark:shadow-gray-600">
@@ -100,13 +96,13 @@ export default function CreditAdviceComponent() {
           </div>
           <div>
             <Button
-              onClick={handleResetInput}
+              onClick={isInputted ? handleResetInput : undefined}
               disabled={isResetLoading}
               customClass="bg-yellow-500 hover:bg-yellow-600 font-bold text-white active:scale-95 transition-all duration-300 ease-in-out"
             >
               {isResetLoading ? (
                 <>
-                  <i className="fa-sharp-duotone fa-solid fa-spinner-third"></i>{" "}
+                  <i className="fa-sharp-duotone fa-solid fa-spinner-third animate-spin"></i>{" "}
                   RESETTING...
                 </>
               ) : (

@@ -9,46 +9,48 @@ import { CredentialType } from "../types/CredentialType";
 import { CredentialSchema } from "../lib/CredentialSchema";
 import CardBody from "./ui/cards/CardBody";
 import { ContextType } from "../types/ContextType";
-import { LoginDetails } from "../utils/constants";
+import { ErrorDetails, LoginDetails } from "../utils/constants";
+import AlertBox from "./ui/AlertBox";
+import { ErrorDetailType } from "../types/CustomType";
 
 export default function LoginComponent() {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const { userCredentials, login }: ContextType = useAuth()!;
   const [error, setError] = useState<Partial<CredentialType>>(LoginDetails);
-  const [err, setErr] = useState<string>("");
+  const [err, setErr] = useState<ErrorDetailType>(ErrorDetails);
   const [formInput, setFormInput] = useState<CredentialType>(LoginDetails);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const handleLogin = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    setIsLoading(true);
-    try {
-      const result = CredentialSchema.safeParse(formInput);
+    const result = CredentialSchema.safeParse(formInput);
 
-      if (!result.success) {
-        const formErrors: Partial<CredentialType> = {};
-        result.error.errors.map((error) => {
-          const [errorPath] = error.path;
-          formErrors[errorPath as keyof CredentialType] = error.message;
-        });
-        setError(formErrors);
-        setErr("Error occured while logging in");
-      } else {
+    if (!result.success) {
+      const formErrors: Partial<CredentialType> = {};
+      result.error.errors.map((error) => {
+        const [errorPath] = error.path;
+        formErrors[errorPath as keyof CredentialType] = error.message;
+      });
+      setError(formErrors);
+      setErr({
+        message: "Something went wrong. Please fix the errors",
+        type: "warning",
+      });
+    } else {
+      setIsLoading(true);
+      setTimeout(() => {
         if (
           userCredentials?.username === formInput?.username &&
           userCredentials.password === formInput.password
         ) {
           login(userCredentials);
-          setErr("");
+          setErr(ErrorDetails);
           setError(LoginDetails);
         } else {
-          setErr("Invalid credentials");
+          setErr({ message: "Invalid credentials", type: "error" });
           setError(LoginDetails);
         }
-      }
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(false);
+        setIsLoading(false);
+      }, 2000);
     }
   };
 
@@ -71,20 +73,17 @@ export default function LoginComponent() {
     };
 
   const handleCloseAlert = (): void => {
-    setErr("");
+    setErr(ErrorDetails);
   };
 
   return (
     <>
       <Card customClass="sm:w-1/3 w-full p-10 rounded-md bg-black/90 shadow-lg dark:shadow-blue-800">
-        {err && (
-          <div className="p-3 border border-red-300 bg-red-500/30 w-full rounded-md text-red-200 flex justify-between">
-            <span>{err}</span>
-            <button type="button" onClick={handleCloseAlert}>
-              <i className="far fa-xmark"></i>
-            </button>
-          </div>
-        )}
+        <AlertBox
+          error={err.message}
+          type={err.type}
+          handleCloseAlert={handleCloseAlert}
+        />
         <CardHeader customClass="text-2xl text-center border-b border-gray-500 dark:border-gray-500 mb-3 text-gray-300 dark:text-gray-300 pb-2">
           Login
         </CardHeader>
@@ -151,7 +150,7 @@ export default function LoginComponent() {
             >
               {isLoading ? (
                 <>
-                  <i className="fa-sharp-duotone fa-solid fa-spinner-third"></i>{" "}
+                  <i className="fa-sharp-duotone fa-solid fa-spinner-third animate-spin"></i>{" "}
                   Logging in...
                 </>
               ) : (

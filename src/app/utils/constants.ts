@@ -30,3 +30,8 @@ export const LoginDetails = {
   username: "",
   password: "",
 };
+
+export const ErrorDetails = {
+  message: "",
+  type: "",
+};
