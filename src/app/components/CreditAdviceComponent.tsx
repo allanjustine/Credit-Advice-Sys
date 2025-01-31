@@ -9,7 +9,7 @@ import Input from "./ui/inputs/Input";
 import Select from "./ui/select/Select";
 import { CreditAdviceFormType } from "../types/CreditAdviceFormType";
 import { CreditAdviceInput } from "../utils/constants";
-import { CreditAdviceSchema } from "../lib/CreditAdviceSchema";
+import { CreditAdviceSchema } from "../lib/schema/CreditAdviceSchema";
 import { Credentials } from "../lib/Credentials";
 import Teaxtarea from "./ui/textarea/Textarea";
 

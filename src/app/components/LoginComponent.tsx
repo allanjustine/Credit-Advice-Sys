@@ -6,7 +6,7 @@ import CardHeader from "./ui/cards/CardHeader";
 import Input from "./ui/inputs/Input";
 import { useAuth } from "../context/useAuth";
 import { CredentialType } from "../types/CredentialType";
-import { CredentialSchema } from "../lib/CredentialSchema";
+import { CredentialSchema } from "../lib/schema/CredentialSchema";
 import CardBody from "./ui/cards/CardBody";
 import { ContextType } from "../types/ContextType";
 import { ErrorDetails, LoginDetails } from "../utils/constants";
