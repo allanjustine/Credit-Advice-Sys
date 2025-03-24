@@ -59,12 +59,6 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-light.css"
         />
-
-        <link
-          rel="shortcut icon"
-          href="https://cdn-icons-png.flaticon.com/512/5863/5863203.png"
-          type="image/x-icon"
-        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

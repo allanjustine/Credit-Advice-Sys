@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useAuth } from "../context/useAuth";
 import { ContextType } from "../types/ContextType";
+import Logo from "../../../public/assets/logo.png";
+import Image from "next/image";
 
 export default function Footer({ navigation }: any) {
   const { isAuthenticated }: ContextType = useAuth()!;
@@ -11,11 +13,7 @@ export default function Footer({ navigation }: any) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap justify-between">
           <div className="w-full sm:w-1/3 mb-8 sm:mb-0">
-            <img
-              className="h-8"
-              src="https://cdn-icons-png.flaticon.com/512/5863/5863203.png"
-              alt="Logo"
-            />
+            <Image width={0} height={0} className="h-16 w-16" src={Logo} alt="Logo" />
             <div className="relative group w-fit">
               <p className="mt-2 dark:text-gray-400 font-bold text-gray-600">
                 Credit Advice Printing (Temporary).
@@ -61,7 +59,7 @@ export default function Footer({ navigation }: any) {
         </div>
         <div className="border-t border-gray-700 mt-8 pt-8">
           <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
-            © 2025 Credit Advice Printing (Temporary). All rights reserved.
+            © {new Date().getFullYear()} Credit Advice Printing (Temporary). All rights reserved.
           </p>
         </div>
       </div>

@@ -12,6 +12,8 @@ import {
 import { useAuth } from "../context/useAuth";
 import Link from "next/link";
 import { ContextType } from "../types/ContextType";
+import Logo from "../../../public/assets/logo.png";
+import Image from "next/image";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -36,10 +38,12 @@ export default function Navbar({ navigation }: any) {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex shrink-0 items-center">
-              <img
-                alt="Your Company"
-                src="https://cdn-icons-png.flaticon.com/512/5863/5863203.png"
-                className="h-8 w-8"
+              <Image
+                width={0}
+                height={0}
+                alt="Smct Logo"
+                src={Logo}
+                className="h-8 w-auto"
               />
             </div>
             <div className="hidden sm:ml-6 sm:block">
