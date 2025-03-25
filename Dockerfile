@@ -34,7 +34,7 @@ COPY --from=builder /app/.next /app/.next
 COPY --from=builder /app/public /app/public
 
 # Expose the application port
-EXPOSE 6001
+EXPOSE 6002
 
 # Start the Next.js app
 CMD ["npm", "start"]
