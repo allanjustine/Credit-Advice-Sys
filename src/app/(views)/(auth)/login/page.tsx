@@ -8,7 +8,8 @@ const Login = () => {
     <div
       className="flex justify-center items-center h-screen p-2"
       style={{
-        backgroundImage: "url('assets/login-bg.gif')",
+        backgroundImage:
+          "url('https://www.shutterstock.com/image-photo/close-cropped-high-angle-photo-600nw-692589601.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

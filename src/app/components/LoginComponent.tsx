@@ -78,7 +78,7 @@ export default function LoginComponent() {
 
   return (
     <>
-      <Card customClass="sm:w-1/3 w-full p-10 rounded-md bg-black/90 shadow-lg dark:shadow-blue-800">
+      <Card customClass="p-10 rounded-md bg-black/90 shadow-lg dark:shadow-blue-800 w-[450px]">
         <AlertBox
           error={err.message}
           type={err.type}
@@ -125,24 +125,26 @@ export default function LoginComponent() {
                 <small className="text-red-500">{error.password}</small>
               )}
             </div>
-            <div>
-              <button
-                type="button"
-                onClick={handleShowPassword}
-                className="text-sm text-gray-300"
-              >
-                <input
-                  type="checkbox"
-                  checked={isShowPassword}
-                  onChange={handleShowPassword}
-                  name="remember"
-                  id="remember"
-                />{" "}
-                Show password
-              </button>
-            </div>
+            {formInput.password && (
+              <div>
+                <button
+                  type="button"
+                  onClick={handleShowPassword}
+                  className="text-sm text-gray-300"
+                >
+                  <input
+                    type="checkbox"
+                    checked={isShowPassword}
+                    onChange={handleShowPassword}
+                    name="remember"
+                    id="remember"
+                  />{" "}
+                  Show password
+                </button>
+              </div>
+            )}
           </CardBody>
-          <CardFooter customClass="text-end border-t mt-2 border-gray-300 dark:border-gray-500">
+          <CardFooter customClass="text-end border-t mt-2 border-gray-300 dark:border-gray-500 mt-5">
             <Button
               type="submit"
               disabled={isLoading}
