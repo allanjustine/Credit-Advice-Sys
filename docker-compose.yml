@@ -22,13 +22,6 @@ services:
     networks:
       - credit
 
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    container_name: credit-advice-tunnel
-    restart: unless-stopped
-    command: tunnel run --url http://nginx-credit-advice:6002
-    networks:
-      - credit
 
 networks:
   credit:
